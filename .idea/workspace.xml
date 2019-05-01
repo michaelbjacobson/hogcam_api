@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d596e17-2d4e-43ff-9ba4-e241bbbbf4c8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hogcam_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hogcam_api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.rb" beforeDir="false" afterPath="$PROJECT_DIR$/api.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies.rb" beforeDir="false" afterPath="$PROJECT_DIR$/dependencies.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,14 +17,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api.rb">
+        <entry file="file://$PROJECT_DIR$/lib/raspberry_pi.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-              <folding>
-                <element signature="e#312#575#0" />
-                <element signature="e#98#111#0" />
-              </folding>
+            <state relative-caret-position="1330">
+              <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -48,6 +39,7 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/dependencies.rb" />
+        <option value="$PROJECT_DIR$/lib/raspberry_pi.rb" />
         <option value="$PROJECT_DIR$/api.rb" />
       </list>
     </option>
@@ -56,7 +48,9 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -68,6 +62,11 @@
             <path>
               <item name="hogcam_api" type="b2602c69:ProjectViewProjectNode" />
               <item name="hogcam_api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hogcam_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hogcam_api" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -90,6 +89,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
@@ -138,7 +138,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556715112125</updated>
-      <workItem from="1556715113351" duration="4244000" />
+      <workItem from="1556715113351" duration="5940000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1556716479785</created>
@@ -154,14 +154,29 @@
       <option name="project" value="LOCAL" />
       <updated>1556719344835</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit">
+      <created>1556722100626</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556722100626</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit">
+      <created>1556723469333</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556723469333</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4244000" />
+    <option name="totallyTimeSpent" value="5940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
@@ -228,11 +243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/raspberry_pi.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-928" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/mock_pi.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -259,12 +269,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        <state relative-caret-position="420">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
           <folding>
             <element signature="e#312#575#0" />
-            <element signature="e#98#111#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/raspberry_pi.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
         </state>
       </provider>
     </entry>
