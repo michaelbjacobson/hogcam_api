@@ -6,7 +6,6 @@ require 'thin'
 require 'json'
 require 'logger'
 require_relative './lib/raspberry_pi'
-require_relative './lib/mock_pi'
 require_relative './lib/camera'
 
 # Raspberry Pi Interface API
@@ -24,30 +23,24 @@ class API < Sinatra::Base
     use Rack::CommonLogger, access_logger
   end
 
-  helpers do
-    def raspi
-      ENV['RACK_ENV'] == 'production' ? RaspberryPi : MockPi
-    end
-  end
-
   get '/status' do
-    raspi.to_json
+    RaspberryPi.to_json
   end
 
   get '/timelapse_running' do
-    raspi.running_timelapse?.to_s
+    RaspberryPi.running_timelapse?.to_s
   end
 
   post '/reboot' do
-    raspi.reboot
+    RaspberryPi.reboot
   end
 
   post '/toggle_timelapse' do
-    raspi.running_timelapse? ? raspi.stop_timelapse : raspi.start_timelapse
+    RaspberryPi.running_timelapse? ? RaspberryPi.stop_timelapse : RaspberryPi.start_timelapse
   end
 
   post '/capture_still' do
-    raspi.capture_still unless raspi.running_timelapse?
+    RaspberryPi.capture_still unless RaspberryPi.running_timelapse?
   end
 
   not_found do
