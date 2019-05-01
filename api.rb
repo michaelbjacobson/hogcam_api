@@ -19,7 +19,7 @@ class API < Sinatra::Base
 
   helpers do
     def raspi
-      ENV['APP_ENV'] == 'deployment' ? RaspberryPi : MockPi
+      ENV['APP_ENV'] == 'production' ? RaspberryPi : MockPi
     end
   end
 
