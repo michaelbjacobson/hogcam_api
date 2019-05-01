@@ -1,5 +1,13 @@
-$LOAD_PATH.unshift File.dirname(__FILE__)
-require 'dependencies'
+require 'rubygems'
+require 'dotenv/load'
+require 'sinatra/base'
+require 'sinatra/cors'
+require 'thin'
+require 'json'
+require 'logger'
+require_relative './lib/raspberry_pi'
+require_relative './lib/mock_pi'
+require_relative './lib/camera'
 
 # Raspberry Pi Interface API
 class API < Sinatra::Base
@@ -9,7 +17,6 @@ class API < Sinatra::Base
   access_logger = Logger.new(access_log)
 
   configure do
-    # set :allow_origin, 'http://localhost:4567'
     set :allow_origin, '*'
     set :allow_methods, 'GET,HEAD,POST'
     set :allow_headers, 'content-type,if-modified-since'
