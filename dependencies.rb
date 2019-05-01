@@ -1,6 +1,8 @@
 # Gems
+require 'rubygems'
 require 'dotenv/load'
 require 'sinatra/base'
+require 'sinatra/cors'
 require 'thin'
 
 # Native modules

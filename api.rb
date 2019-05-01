@@ -3,11 +3,17 @@ require 'dependencies'
 
 # Raspberry Pi Interface API
 class API < Sinatra::Base
+  register Sinatra::Cors
   Logger.class_eval { alias_method :write, :<< }
   access_log = File.join(File.dirname(File.expand_path(__FILE__)), 'logs', 'access.log')
   access_logger = Logger.new(access_log)
 
   configure do
+    # set :allow_origin, 'http://localhost:4567'
+    set :allow_origin, '*'
+    set :allow_methods, 'GET,HEAD,POST'
+    set :allow_headers, 'content-type,if-modified-since'
+    set :expose_headers, 'location,link'
     use Rack::CommonLogger, access_logger
   end
 
@@ -35,5 +41,9 @@ class API < Sinatra::Base
 
   post '/capture_still' do
     raspi.capture_still unless raspi.running_timelapse?
+  end
+
+  not_found do
+    redirect '/'
   end
 end
