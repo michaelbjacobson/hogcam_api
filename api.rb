@@ -20,6 +20,7 @@ class API < Sinatra::Base
     set :allow_methods, 'GET,HEAD,POST'
     set :allow_headers, 'content-type,if-modified-since'
     set :expose_headers, 'location,link'
+    use Rack::SslEnforcer if ENV['RACK_ENV'] == 'production'
     use Rack::CommonLogger, access_logger
   end
 
