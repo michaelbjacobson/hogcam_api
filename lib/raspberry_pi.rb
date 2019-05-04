@@ -3,12 +3,6 @@ require_relative './camera'
 
 # Raspberry Pi interface
 class RaspberryPi
-
-  Net::SSH.start("host", "user", :password => "password") do |ssh|
-    result = ssh.exec!("ls -l")
-    puts result
-  end
-
   def self.temp
     temp = `/usr/local/bin/temp`.strip
     "#{temp}°C"
