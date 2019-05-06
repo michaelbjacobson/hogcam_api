@@ -9,8 +9,8 @@ require 'logger'
 require_relative './lib/raspberry_pi'
 require_relative './lib/camera'
 
-# Raspberry Pi Interface API
-class API < Sinatra::Base
+# Raspberry Pi Interface App
+class App < Sinatra::Base
   register Sinatra::Cors
   Logger.class_eval { alias_method :write, :<< }
   access_log = File.join(File.dirname(File.expand_path(__FILE__)), 'logs', 'access.log')
@@ -26,11 +26,11 @@ class API < Sinatra::Base
   end
 
   get '/status' do
-    RaspberryPi.to_json
+    RaspberryPi.status.to_json
   end
 
-  get '/timelapse_running' do
-    RaspberryPi.running_timelapse?.to_s
+  get '/timelapse_active' do
+    RaspberryPi.timelapse_active?.to_s
   end
 
   post '/reboot' do
@@ -38,11 +38,11 @@ class API < Sinatra::Base
   end
 
   post '/toggle_timelapse' do
-    RaspberryPi.running_timelapse? ? RaspberryPi.stop_timelapse : RaspberryPi.start_timelapse
+    RaspberryPi.timelapse_active? ? RaspberryPi.stop_timelapse : RaspberryPi.start_timelapse
   end
 
-  post '/capture_still' do
-    RaspberryPi.capture_still unless RaspberryPi.running_timelapse?
+  post '/update_preview' do
+    RaspberryPi.update_preview unless RaspberryPi.timelapse_active?
   end
 
   not_found do

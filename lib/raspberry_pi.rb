@@ -1,10 +1,9 @@
-require 'json'
 require_relative './camera'
 
 # Raspberry Pi interface
 class RaspberryPi
   def self.temp
-    temp = `/usr/local/bin/temp`.strip
+    temp = `temp`.strip
     "#{temp}°C"
   end
 
@@ -13,15 +12,15 @@ class RaspberryPi
   end
 
   def self.mem
-    `/usr/local/bin/mem`.strip
+    `mem`.strip
   end
 
-  def self.running_timelapse?
-    `/usr/local/bin/timelapse_running`.strip == 'true'
+  def self.timelapse_active?
+    `timelapse active`.strip == 'true'
   end
 
-  def self.running_stream?
-    `/usr/local/bin/stream_running`.strip == 'true'
+  def self.stream_active?
+    `stream active`.strip == 'true'
   end
 
   def self.uptime
@@ -36,37 +35,36 @@ class RaspberryPi
     "#{hours_str}, #{minutes_str}"
   end
 
-  def self.capture_still
-    system('/usr/local/bin/preview')
+  def self.update_preview
+    system('update_preview')
   end
 
   def self.start_timelapse
-    system('/usr/local/bin/start_timelapse')
+    system('timelapse start')
   end
 
   def self.stop_timelapse
-    system('/usr/local/bin/stop_timelapse')
+    system('timelapse stop')
   end
 
   def self.start_stream
-    system('/usr/local/bin/start_stream')
+    system('stream start')
   end
 
   def self.stop_stream
-    system('/usr/local/bin/stop_stream')
+    system('stream stop')
   end
 
   def self.reboot
     system('sudo reboot')
   end
 
-  def self.to_json
-    status = {
+  def self.status
+    {
       coreTemperature: temp,
       availableStorage: mem,
       cameraStatus: camera_status,
       uptime: uptime
     }
-    status.to_json
   end
 end

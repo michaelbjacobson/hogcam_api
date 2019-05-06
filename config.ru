@@ -1,3 +1,3 @@
-require File.expand_path('api.rb', File.dirname(__FILE__))
+require File.expand_path('app.rb', File.dirname(__FILE__))
 
-run API
+run App
