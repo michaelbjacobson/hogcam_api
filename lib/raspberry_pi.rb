@@ -40,7 +40,7 @@ class RaspberryPi
   end
 
   def self.start_timelapse
-    system('/usr/local/bin/timelapse start')
+    system('nohup /usr/local/bin/timelapse start >/dev/null &')
   end
 
   def self.stop_timelapse
@@ -48,7 +48,7 @@ class RaspberryPi
   end
 
   def self.start_stream
-    system('/usr/local/bin/stream start')
+    system('nohup /usr/local/bin/stream start >/dev/null &')
   end
 
   def self.stop_stream
