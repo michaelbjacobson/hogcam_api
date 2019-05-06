@@ -3,7 +3,7 @@ require_relative './camera'
 # Raspberry Pi interface
 class RaspberryPi
   def self.temp
-    temp = `temp`.strip
+    temp = `/usr/local/bin/temp`.strip
     "#{temp}°C"
   end
 
@@ -12,15 +12,15 @@ class RaspberryPi
   end
 
   def self.mem
-    `mem`.strip
+    `/usr/local/bin/mem`.strip
   end
 
   def self.timelapse_active?
-    `timelapse active`.strip == 'true'
+    `/usr/local/bin/timelapse active`.strip == 'true'
   end
 
   def self.stream_active?
-    `stream active`.strip == 'true'
+    `/usr/local/bin/stream active`.strip == 'true'
   end
 
   def self.uptime
@@ -36,23 +36,23 @@ class RaspberryPi
   end
 
   def self.update_preview
-    system('update_preview')
+    system('/usr/local/bin/update_preview')
   end
 
   def self.start_timelapse
-    system('timelapse start')
+    system('/usr/local/bin/timelapse start')
   end
 
   def self.stop_timelapse
-    system('timelapse stop')
+    system('/usr/local/bin/timelapse stop')
   end
 
   def self.start_stream
-    system('stream start')
+    system('/usr/local/bin/stream start')
   end
 
   def self.stop_stream
-    system('stream stop')
+    system('/usr/local/bin/stream stop')
   end
 
   def self.reboot
