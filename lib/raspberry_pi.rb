@@ -36,15 +36,11 @@ class RaspberryPi
   end
 
   def self.update_preview
-    system('/usr/local/bin/update_preview')
+    system('/usr/local/bin/update_preview') unless timelapse_active?
   end
 
-  def self.start_timelapse
-    system('nohup /usr/local/bin/timelapse start >/dev/null &')
-  end
-
-  def self.stop_timelapse
-    system('nohup /usr/local/bin/timelapse stop >/dev/null &')
+  def self.toggle_timelapse
+    timelapse_active? ? stop_timelapse : start_timelapse
   end
 
   def self.start_stream
@@ -67,4 +63,16 @@ class RaspberryPi
       uptime: uptime
     }
   end
+
+  # private
+
+  def self.start_timelapse
+    system('nohup /usr/local/bin/timelapse start >/dev/null &')
+  end
+
+  def self.stop_timelapse
+    system('nohup /usr/local/bin/timelapse stop >/dev/null &')
+  end
+
+  private_class_method :start_timelapse, :stop_timelapse
 end

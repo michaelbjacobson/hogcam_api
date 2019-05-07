@@ -29,7 +29,7 @@ class App < Sinatra::Base
     RaspberryPi.status.to_json
   end
 
-  get '/timelapse_active' do
+  get '/timelapse/active' do
     RaspberryPi.timelapse_active?.to_s
   end
 
@@ -37,12 +37,12 @@ class App < Sinatra::Base
     RaspberryPi.reboot
   end
 
-  post '/toggle_timelapse' do
-    RaspberryPi.timelapse_active? ? RaspberryPi.stop_timelapse : RaspberryPi.start_timelapse
+  post '/timelapse/toggle' do
+    RaspberryPi.toggle_timelapse
   end
 
   post '/update_preview' do
-    RaspberryPi.update_preview unless RaspberryPi.timelapse_active?
+    RaspberryPi.update_preview
   end
 
   not_found do
