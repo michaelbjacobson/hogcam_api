@@ -17,18 +17,13 @@ class App < Sinatra::Base
   access_logger = Logger.new(access_log)
 
   configure do
-    # set :allow_origin, '*'
-    set :allow_origin, 'https://www.hedgehog.watch'
+    set :allow_origin, 'https://www.hedgehog.watch https://hogcam.herokuapp.com/'
     set :allow_methods, 'GET,POST'
     set :allow_headers, 'content-type,if-modified-since'
     set :expose_headers, 'location,link'
     use Rack::SslEnforcer if ENV['RACK_ENV'] == 'production'
     use Rack::CommonLogger, access_logger
   end
-
-  # before do
-  #   halt 418, "I'm a teapot!" if request.params['key'] != ENV['HOGCAM_API_KEY']
-  # end
 
   get '/status' do
     RaspberryPi.status.to_json
