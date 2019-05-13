@@ -25,6 +25,14 @@ class App < Sinatra::Base
     use Rack::CommonLogger, access_logger
   end
 
+  before do
+    halt 418, "I'm a teapot!" if request.params['key'] != ENV['HOGCAM_API_KEY']
+  end
+
+  get '/' do
+    'test'
+  end
+
   get '/status' do
     RaspberryPi.status.to_json
   end
