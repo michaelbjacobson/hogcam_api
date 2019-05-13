@@ -17,7 +17,7 @@ class App < Sinatra::Base
   access_logger = Logger.new(access_log)
 
   configure do
-    set :allow_origin, 'https://www.hedgehog.watch https://hogcam.herokuapp.com/'
+    set :allow_origin, 'https://www.hedgehog.watch'
     set :allow_methods, 'GET,POST'
     set :allow_headers, 'content-type,if-modified-since'
     set :expose_headers, 'location,link'
