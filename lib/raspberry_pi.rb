@@ -16,7 +16,7 @@ class RaspberryPi
   end
 
   def self.signal_strength
-    `/usr/local/bin/signal_strength`.strip
+    `/usr/local/bin/signal_strength -num`.strip
   end
 
   def self.timelapse_active?
