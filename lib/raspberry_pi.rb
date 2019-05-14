@@ -64,6 +64,7 @@ class RaspberryPi
       coreTemperature: temp,
       availableStorage: mem,
       cameraStatus: camera_status,
+      signalStrength: signal_strength,
       uptime: uptime
     }
   end
