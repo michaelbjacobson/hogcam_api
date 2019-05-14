@@ -15,6 +15,10 @@ class RaspberryPi
     `/usr/local/bin/mem`.strip
   end
 
+  def self.signal_strength
+    `/usr/local/bin/signal_strength`.strip
+  end
+
   def self.timelapse_active?
     `/usr/local/bin/timelapse active`.strip == 'true'
   end
